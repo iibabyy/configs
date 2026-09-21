@@ -40,8 +40,3 @@ source ($nu.data-dir | path join "vendor" "autoload" "starship.nu")
 # Zoxide
 # ---------------------
 source "~/.zoxide.nu"
-
-use nu_scripts/stdlib-candidate-archive/std-rfc/clip
-use nu_scripts/modules/background_task/task.nu
-use nu_scripts/modules/fun/wordle.nu
-use nu_scripts/aliases/eza/eza-aliases.nu *

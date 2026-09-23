@@ -1,10 +1,13 @@
 # ---------------------
+# Env variables
 # ---------------------
-source "~/.cargo/env.nu"
-$env.CARGO_TARGET_DIR = ($env.HOME + "/.cargo-target")
 $env.EDITOR = default "nvim"
 $env.VISUAL = default "nvim"
+$env.SHELL = "/home/ibaby/.local/bin/nu"
+
+source "~/.cargo/env.nu"
 $env.CARGO_HOME = $env.CARGO_HOME? | default $"($env.HOME)/.cargo"
+$env.CARGO_TARGET_DIR = ($env.HOME + "/.cargo-target")
 
 if ("~/sgoinfre" | path exists) {
     $env.XDG_CACHE_HOME = $"($env.HOME)/sgoinfre"

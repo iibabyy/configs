@@ -15,9 +15,7 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				-- map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-				-- map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-				-- map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 				map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
 				-- Toggle inlay hints
@@ -31,7 +29,6 @@ return {
 		})
 
 		-- Setup Mason
-
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
@@ -43,31 +40,31 @@ return {
 			automatic_installation = true,
 		})
 
-		-- Load lsp config files in lua/lsp_servers/
+		-- Read and load oad lsp config files in lua/lsp_servers/
 		local lsp_config_path = vim.fn.stdpath("config") .. "/lua/lsp_servers"
 		local files = vim.fn.glob(lsp_config_path .. "/*.lua", true, true)
 
 		for _, file in ipairs(files) do
-			local modname = "lsp_servers." .. vim.fn.fnamemodify(file, ":t:r")
-			local ret = require(modname)
-			local server_name = ret[1]
-			local opts = ret.opts
-			vim.lsp.config(server_name, opts)
+			local file_without_ext = vim.fn.fnamemodify(file, ":t:r")
+			local lsp_config = require("lsp_servers." .. file_without_ext)
+			local server_name = lsp_config.name or lsp_config[1]
+			vim.lsp.config(server_name, lsp_config.opts)
 			vim.lsp.enable(server_name)
 		end
 
-		local cwd = vim.fn.getcwd()
-		if vim.uv.fs_stat(vim.fs.joinpath(cwd, "Cargo.toml")) then
-			local cfg = vim.lsp.config["rust_analyzer"]
-			if cfg then
-				vim.lsp.start(vim.tbl_extend("force", {}, cfg, {
-					root_dir = cwd,
-				}), {
-					reuse_client = function(client, conf)
-						return client.name == conf.name and client.config.root_dir == conf.root_dir
-					end,
-				})
-			end
-		end
+		-- Start rust_analyzer if a Cargo.toml is found
+		vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+			desc = "Eagerly start rust_analyzer if Cargo.toml is found in the directory tree",
+			group = vim.api.nvim_create_augroup("eager_rust_analyzer", { clear = true }),
+			callback = function()
+				-- vim.fs.root safely searches upwards, so it works even if you open Neovim in a subdirectory like src/
+				local root = vim.fs.root(vim.uv.cwd(), "Cargo.toml")
+				local cfg = vim.lsp.config.rust_analyzer
+
+				if root and cfg then
+					vim.lsp.start(vim.tbl_extend("force", {}, cfg, { root_dir = root }))
+				end
+			end,
+		})
 	end,
 }

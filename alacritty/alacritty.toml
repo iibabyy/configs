@@ -11,9 +11,20 @@ foreground = "#ffffff"
 [selection]
 save_to_clipboard = true
 
-[terminal]
-shell = "/home/ibaby/.local/bin/nu"
+[terminal.shell]
+program = "nu"
+args = [
+  "--execute",
+  "exec zellij"
+]
 
 [mouse]
 hide_when_typing = true
 
+[window]
+decorations = "None"
+
+[keyboard]
+bindings = [
+  { key = "v", mods = "Control", action = "Paste" }
+]

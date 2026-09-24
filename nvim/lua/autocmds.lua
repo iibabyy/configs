@@ -42,8 +42,8 @@ vim.lsp.util.apply_workspace_edit = function(workspace_edit, offset_encoding)
 	end)
 end
 
--- Save when exiting a buffer
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
+-- Save when leaving a buffer
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
 	pattern = "*",
 	callback = function()
 		if vim.bo.modified and vim.bo.buflisted and vim.fn.expand("%") ~= "" then

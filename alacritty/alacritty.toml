@@ -1,7 +1,7 @@
 [font]
 size = 12.0
 normal = {
-	family = "Hack Nerd Font Mono"
+  family = "Hack Nerd Font Mono"
 }
 
 [colors.primary]
@@ -14,8 +14,8 @@ save_to_clipboard = true
 [terminal.shell]
 program = "nu"
 args = [
-  "--execute",
-  "exec zellij"
+  # "--config", "/dev/null", # so nushell only load env.nu
+  "--execute", "zellij attach --create alacritty"
 ]
 
 [mouse]

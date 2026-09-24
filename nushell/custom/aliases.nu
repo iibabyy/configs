@@ -3,8 +3,11 @@ export alias c = clear
 
 export alias v = nvim .
 export alias vi = nvim
-export alias vu = nvim $nu.default-config-dir
-export alias vn = nvim ($env.HOME + "/.config/nvim")
+export alias vc = nvim ~/.config/
+export alias vu = nvim $nu.default-config-dir # ~/.config/nushell
+export alias vn = nvim ~/.config/nvim/
+
+export alias ze = zellij
 
 export alias ls = ls -d
 export alias l = ls

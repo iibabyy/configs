@@ -23,6 +23,7 @@ hide_when_typing = true
 
 [window]
 decorations = "None"
+startup_mode = "Maximized"
 
 [keyboard]
 bindings = [

@@ -8,12 +8,40 @@ $env.SHELL = "/home/ibaby/.local/bin/nu"
 source "~/.cargo/env.nu"
 $env.CARGO_HOME = $env.CARGO_HOME? | default $"($env.HOME)/.cargo"
 
-$env.CARGO_TARGET_DIR = ($env.HOME + "/.cargo-target")
-mkdir ~/goinfre/.cargo-src/ # I use it as a symlink for ~/.cargo/registry/src/
-
 if ("~/sgoinfre" | path exists) {
     $env.XDG_CACHE_HOME = $"($env.HOME)/sgoinfre"
 }
+
+# ---------------------
+# Symlinks
+# ---------------------
+def setup-symlink-dir [
+    path: path # the path of the symlink
+    target: path, # the directory to link to
+  --abort-if-not-found
+] {
+    try {
+        if ($target | path exists) and ($target | path type) != 'dir' {
+            error make --unspanned $"`($target)` is not a directory"
+        } else if ($path | path exists) and ($path | path type) != 'symlink' {
+            error make --unspanned $"`($path)` already exists and is not a symlink"
+        }
+
+        if $abort_if_not_found and not ($target | path exists) {
+            return
+        }
+
+        mkdir $target
+        if not ($path | path exists) {
+            ln -s ($target | path expand) $path
+        }
+    }
+}
+
+$env.CARGO_TARGET_DIR = $"($env.HOME)/.cargo-target"
+setup-symlink-dir $env.CARGO_TARGET_DIR ~/goinfre/.cargo-target
+
+setup-symlink-dir ~/.cargo/registry/src/ ~/sgoinfre/.cargo-src/ --abort-if-not-found
 
 # ---------------------
 # PATH env var

@@ -25,6 +25,7 @@ return {
 		},
 		opts = {
 			window = {
+				position = "right",
 				mappings = {
 					-- Custom directional navigation
 					["l"] = "open",

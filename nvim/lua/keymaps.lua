@@ -11,7 +11,7 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
 
-vim.keymap.set('n', '<CR>', 'o<ESC>', { desc = "Insert new line below" })
+vim.keymap.set('n', '<C-CR>', 'o<ESC>', { desc = "Insert new line below" })
 vim.keymap.set('n', '<S-CR>', 'O<ESC>', { desc = "Insert new line above" })
 
 vim.keymap.set({ 'n', 'x' }, '<leader>ca', '<cmd>lua require("fastaction").code_action()<CR>',

@@ -1,0 +1,3 @@
+The more rust tools, the better...
+
+[Zellij 🦀](https://github.com/zellij-org/zellij) • [Alacritty 🦀](https://github.com/alacritty/alacritty) • [Nushell 🦀](https://github.com/nushell/nushell) • [Nvim](https://github.com/neovim/neovim)

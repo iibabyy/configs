@@ -326,6 +326,13 @@ load_plugins {
     // "https://example.com/my-plugin.wasm"
 }
 
+// Show usage tips on Zellij startup. These can also be browsed through the
+// about plugin with Ctrl o + a and then ?
+// Options:
+//     true (default)
+//     false
+show_startup_tips false
+
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 // eg. when terminal window with an active zellij session is closed
 // (Requires restart)
@@ -354,7 +361,7 @@ load_plugins {
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-// default_shell "fish"
+default_shell "nu"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //

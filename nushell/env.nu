@@ -7,7 +7,9 @@ $env.SHELL = "/home/ibaby/.local/bin/nu"
 
 source "~/.cargo/env.nu"
 $env.CARGO_HOME = $env.CARGO_HOME? | default $"($env.HOME)/.cargo"
+
 $env.CARGO_TARGET_DIR = ($env.HOME + "/.cargo-target")
+mkdir ~/goinfre/.cargo-src/ # I use it as a symlink for ~/.cargo/registry/src/
 
 if ("~/sgoinfre" | path exists) {
     $env.XDG_CACHE_HOME = $"($env.HOME)/sgoinfre"

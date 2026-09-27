@@ -1,0 +1,8 @@
+/*
+!.gitignore
+!Readme.md
+
+!nushell/
+!nvim/
+!alacritty/
+!zellij/

@@ -11,10 +11,10 @@ keybinds clear-defaults=true {
         }
     }
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Ctrl Space" { SwitchToMode "Normal"; }
 
         // plugin: autolock
-        bind "Ctrl Shift g" {
+        bind "Alt Space" {
             MessagePlugin "autolock" {payload "toggle";};
             SwitchToMode "Normal";
         }
@@ -216,7 +216,7 @@ keybinds clear-defaults=true {
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Ctrl Space" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
         bind "Alt i" { MoveTab "Left"; }
@@ -229,7 +229,7 @@ keybinds clear-defaults=true {
         bind "Alt Shift p" { ToggleGroupMarking; }
 
         // plugin: autolock
-        bind "Ctrl Shift g" {
+        bind "Alt Space" {
             MessagePlugin "autolock" {payload "toggle";};
             SwitchToMode "Locked";
         }

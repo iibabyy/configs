@@ -69,7 +69,7 @@ return {
 			default = { "lsp", "path", "buffer", "lazydev" },
 			providers = {
 				lsp = {
-					-- score_offset = 99,
+					score_offset = 99,
 				},
 				lazydev = {
 					name = "LazyDev",

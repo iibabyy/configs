@@ -316,14 +316,19 @@ plugins {
         // is_enabled true
         triggers "nvim|vim|git"
     }
+
+    // plugin: zjstatus
+    zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.25.0/zjstatus.wasm"
+
+    // plugin zjstatus-hints
+    zjstatus-hints location="https://github.com/iibabyy/zjstatus-hints/releases/download/v0.1.5-custom/zjstatus-hints.wasm"
 }
 
 // Plugins to load in the background when a new session starts
 load_plugins {
     "zellij:link"
     autolock
-    // "file:/path/to/my-plugin.wasm"
-    // "https://example.com/my-plugin.wasm"
+    zjstatus-hints
 }
 
 // Show usage tips on Zellij startup. These can also be browsed through the

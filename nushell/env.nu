@@ -18,30 +18,26 @@ if ("~/sgoinfre" | path exists) {
 def setup-symlink-dir [
     path: path # the path of the symlink
     target: path, # the directory to link to
-  --abort-if-not-found
 ] {
-    try {
-        if ($target | path exists) and ($target | path type) != 'dir' {
-            error make --unspanned $"`($target)` is not a directory"
-        } else if ($path | path exists) and ($path | path type) != 'symlink' {
-            error make --unspanned $"`($path)` already exists and is not a symlink"
-        }
+    let path = $path | str trim --right --char '/'
+    let target = $target | str trim --right --char '/'
 
-        if $abort_if_not_found and not ($target | path exists) {
-            return
-        }
+    if ($target | path exists) and ($target | path type) != 'dir' {
+        error make --unspanned $"`($target)` is not a directory"
+    } else if ($path | path exists) and ($path | path type) != 'symlink' {
+        error make --unspanned $"`($path)` already exists and is not a symlink"
+    }
 
-        mkdir $target
-        if not ($path | path exists) {
-            ln -s ($target | path expand) $path
-        }
+    mkdir $target
+    if not ($path | path exists) {
+        ln -s ($target | path expand) $path
     }
 }
 
-$env.CARGO_TARGET_DIR = $"($env.HOME)/.cargo-target"
-setup-symlink-dir $env.CARGO_TARGET_DIR ~/goinfre/.cargo-target
+$env.CARGO_TARGET_DIR = $"($env.HOME)/.cargo-target/"
+setup-symlink-dir $env.CARGO_TARGET_DIR ~/goinfre/.cargo-target/
 
-setup-symlink-dir ~/.cargo/registry/src/ ~/sgoinfre/.cargo-src/ --abort-if-not-found
+setup-symlink-dir ~/.cargo/registry/src ~/sgoinfre/.cargo-src/
 
 # ---------------------
 # PATH env var

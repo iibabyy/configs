@@ -15,7 +15,7 @@ save_to_clipboard = true
 program = "nu"
 args = [
   # "--config", "/dev/null", # so nushell only load env.nu
-  "--execute", "zellij attach --create alacritty"
+  "--execute", "zellij attach --create main"
 ]
 
 [mouse]

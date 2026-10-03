@@ -1,0 +1,49 @@
+themes {
+
+  catppuccin-mocha {
+    bg "#585b70" // Surface2
+    fg "#89dceb" // Light Blue (Sky)
+    red "#f38ba8"
+    green "#a6e3a1"
+    blue "#89b4fa"
+    yellow "#f9e2af"
+    magenta "#f5c2e7" // Pink
+    orange "#fab387" // Peach
+    cyan "#89dceb" // Sky
+    black "#181825" // Mantle
+    white "#cdd6f4" // Text
+
+    frame_unselected {
+        base 88 91 112
+        background 88 91 112
+        emphasis_0 88 91 112
+        emphasis_1 88 91 112
+        emphasis_2 88 91 112
+        emphasis_3 88 91 112
+    }
+    frame_selected {
+        base 137 220 235
+        background 137 220 235
+        emphasis_0 137 220 235
+        emphasis_1 137 220 235
+        emphasis_2 137 220 235
+        emphasis_3 137 220 235
+    }
+    ribbon_unselected {
+        base 179 229 252       // Light Blue (#b3e5fc)
+        background 49 50 68    // Catppuccin Surface0 (background)
+        emphasis_0 243 139 168 // Red
+        emphasis_1 166 227 161 // Green
+        emphasis_2 249 226 175 // Yellow
+        emphasis_3 137 180 250 // Blue
+    }
+    text_unselected {
+        base 179 229 252       // Light Blue (#b3e5fc)
+        background 69 71 90    // Catppuccin Surface1 (background)
+        emphasis_0 243 139 168
+        emphasis_1 166 227 161
+        emphasis_2 249 226 175
+        emphasis_3 137 180 250
+    }
+  }
+}

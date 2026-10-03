@@ -395,7 +395,7 @@ default_shell "nu"
 //   - full (draw a full frame around each pane)
 //   - none (equivalent to pane_frames false)
 //
-// pane_frame_style "titles"
+pane_frame_style "full"
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -650,7 +650,7 @@ serialize_pane_viewport true
 // Whether stacked panes display as a list with the expanded pane pinned to the bottom
 // Default: true
 //
-// stacked_pane_list false
+stacked_pane_list false
 
 // Whether to show release notes on first version run
 // Default: true

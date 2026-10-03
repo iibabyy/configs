@@ -718,3 +718,10 @@ serialize_pane_viewport true
 web_client {
     font "monospace"
 }
+
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+theme "catppuccin-mocha"

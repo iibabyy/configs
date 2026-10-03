@@ -8,6 +8,7 @@ export alias vu = nvim $nu.default-config-dir # ~/.config/nushell
 export alias vn = nvim ~/.config/nvim/
 
 export alias ze = zellij
+export alias zm = zellij attach --create main
 
 export alias ls = ls -d
 export alias l = ls

@@ -182,7 +182,7 @@ keybinds clear-defaults=true {
             SwitchToMode "Normal"
         }
         bind "z" {
-            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
+            LaunchOrFocusPlugin "https://github.com/cunialino/zellij-sessionizer/releases/download/v0.2.0/sessionizer.wasm" {
                 floating true
                 move_to_focused_tab true
                 cwd "/"
@@ -318,9 +318,8 @@ plugins {
     plugin-manager location="zellij:plugin-manager"
     about location="zellij:about"
 
-    // Define the "autolock" plugin.
-    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
-        // is_enabled true
+    // plugin: autolock
+    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/download/0.2.2/zellij-autolock.wasm" {
         triggers "nvim|vim|git"
     }
 

@@ -233,6 +233,43 @@ keybinds clear-defaults=true {
             MessagePlugin "autolock" {payload "toggle";};
             SwitchToMode "Locked";
         }
+
+        // plugin: zellij_forgot
+        bind "Ctrl y" {
+            LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/download/0.4.2/zellij_forgot.wasm" {
+                floating true
+            }
+        }
+
+        // plugin: vim-zellij-navigator
+        bind "Ctrl h" {
+            MessagePlugin "vim-zellij-navigator"{
+                name "move_focus_or_tab";
+                payload "left";
+                move_mod "ctrl";
+            }
+        }
+        bind "Ctrl j" {
+            MessagePlugin "vim-zellij-navigator"{
+                name "move_focus";
+                payload "down";
+                move_mod "ctrl";
+            }
+        }
+        bind "Ctrl k" {
+            MessagePlugin "vim-zellij-navigator"{
+                name "move_focus";
+                payload "up";
+                move_mod "ctrl";
+            }
+        }
+        bind "Ctrl l" {
+            MessagePlugin "vim-zellij-navigator"{
+                name "move_focus_or_tab";
+                payload "right";
+                move_mod "ctrl";
+            }
+        }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -260,36 +297,6 @@ keybinds clear-defaults=true {
     }
     shared {
         bind "Alt f" { ToggleFloatingPanes; }
-
-        // plugin: vim-zellij-navigator
-        bind "Ctrl h" {
-            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "left";
-                move_mod "ctrl";
-            }
-        }
-        bind "Ctrl j" {
-            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "down";
-                move_mod "ctrl";
-            }
-        }
-        bind "Ctrl k" {
-            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "up";
-                move_mod "ctrl";
-            }
-        }
-        bind "Ctrl l" {
-            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "right";
-                move_mod "ctrl";
-            }
-        }
     }
 }
 
@@ -317,6 +324,9 @@ plugins {
         triggers "nvim|vim|git"
     }
 
+    // plugin: vim-zellij-navigator
+    vim-zellij-navigator location="https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm"
+
     // plugin: zjstatus
     zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.25.0/zjstatus.wasm"
 
@@ -328,6 +338,7 @@ plugins {
 load_plugins {
     "zellij:link"
     autolock
+    vim-zellij-navigator
     zjstatus-hints
 }
 

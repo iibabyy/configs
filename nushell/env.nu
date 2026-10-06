@@ -9,7 +9,7 @@ source "~/.cargo/env.nu"
 $env.CARGO_HOME = $env.CARGO_HOME? | default $"($env.HOME)/.cargo"
 
 if ("~/sgoinfre" | path exists) {
-    $env.XDG_CACHE_HOME = $"($env.HOME)/sgoinfre"
+    $env.XDG_CACHE_HOME = $"($env.HOME)/sgoinfre/.cache"
 }
 
 # ---------------------

@@ -9,6 +9,7 @@ export alias vn = nvim ~/.config/nvim/
 
 export alias ze = zellij
 export alias zm = zellij attach --create main
+export alias zk = zellij kill-all-sessions --yes
 
 export alias ls = ls -d
 export alias l = ls

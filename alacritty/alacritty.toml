@@ -5,7 +5,7 @@ normal = {
 }
 
 [colors.primary]
-background = "#282c34"
+background = "#1e1e2e"
 foreground = "#ffffff"
 
 [selection]

@@ -45,6 +45,7 @@ setup-symlink-dir ~/.cargo/registry/src ~/sgoinfre/.cargo-src/
 let paths: list<string> = [
     $"($env.HOME)/.local/bin"
     $"($env.HOME )/.fzf/bin"
+    $"($env.HOME )/.nvim/bin"
     $"($env.CARGO_HOME)/bin"
     "/usr/local/bin"
     "/usr/local/sbin"

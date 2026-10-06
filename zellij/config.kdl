@@ -218,7 +218,6 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Ctrl Space" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
-        bind "Alt n" { NewPane; }
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
@@ -296,6 +295,8 @@ keybinds clear-defaults=true {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
     shared {
+        bind "Alt n" { NewPane; }
+        bind "Alt x" { CloseFocus; }
         bind "Alt f" { ToggleFloatingPanes; }
     }
 }

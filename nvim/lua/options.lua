@@ -93,3 +93,5 @@ vim.diagnostic.config({
 -- Keeps folds open by default when opening a file
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+
+vim.opt.termguicolors = true

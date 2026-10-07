@@ -46,6 +46,7 @@ let paths: list<string> = [
     $"($env.HOME)/.local/bin"
     $"($env.HOME )/.fzf/bin"
     $"($env.HOME )/.nvim/bin"
+    $"($env.HOME )/go/bin"
     $"($env.CARGO_HOME)/bin"
     "/usr/local/bin"
     "/usr/local/sbin"

@@ -20,6 +20,9 @@ export alias gd = lazydocker
 
 export alias agy = agy --dangerously-skip-permissions
 
+export alias exa = ^exa --icons
+export alias x = exa
+
 # Git Aliases
 export alias g = git
 export alias ga = git add

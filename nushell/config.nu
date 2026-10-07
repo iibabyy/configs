@@ -45,3 +45,10 @@ source ($nu.data-dir | path join "vendor" "autoload" "starship.nu")
 # Zoxide
 # ---------------------
 source "~/.zoxide.nu"
+
+# ---------------------
+# Startup commands
+# ---------------------
+if (is-terminal) {
+    exa
+}

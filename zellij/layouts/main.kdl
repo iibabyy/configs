@@ -1,0 +1,58 @@
+layout {
+    cwd "Desktop/"
+
+    tab name="btop" {
+        pane borderless=true close_on_exit=true {
+            command "nu"
+            args "-c" "btop"
+        }
+    }
+
+    tab name="main" focus=true {
+        exa_pane
+    }
+
+    pane_template name="exa_pane" close_on_exit=true {
+        command "nu"
+        args "-e" "exa"
+    }
+
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            // plugin: zjstatus
+            plugin location="zjstatus" {
+                format_left   "{mode} {tabs}"
+                format_center ""
+                format_space  ""
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#b3e5fc]{char}"
+                border_position "top"
+
+                // hide_frame_for_single_pane "true"
+
+                mode_normal  "#[bg=blue] "
+                mode_tmux    "#[bg=orange] "
+
+                tab_normal   "#[fg=#b3e5fc] {name} "
+                tab_active   "#[fg=#b3e5fc,bold,italic] {name} "
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=#b3e5fc] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+                command_git_branch_cwd         "{focused_pane_cwd}"
+
+                datetime        "#[fg=#b3e5fc,bold] {format} "
+                datetime_format "%A, %d %b %Y %H:%M"
+                datetime_timezone "Europe/Berlin"
+
+                // plugin: zjstatus_hints
+                format_right  "{pipe_zjstatus_hints}{datetime} " 
+                pipe_zjstatus_hints_format "{output}"
+            }
+        }
+    }
+}

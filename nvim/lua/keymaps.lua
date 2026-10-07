@@ -29,3 +29,6 @@ vim.keymap.set("x", "P", "p")
 
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' })
 vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { desc = 'Select all' })
+
+vim.keymap.set({ 'n', 'v', 'o' }, '<C-Right>', 'e', { noremap = true })
+vim.keymap.set('i', '<C-Right>', '<Esc>ea', { noremap = true })

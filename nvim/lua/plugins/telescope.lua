@@ -12,6 +12,16 @@ return {
 			extensions = {
 				["ui-select"] = { require("telescope.themes").get_dropdown() },
 			},
+			defaults = {
+				mappings = {
+					i = {
+						["<C-s>"] = require("telescope.actions").select_vertical,
+					},
+					n = {
+						["<C-s>"] = require("telescope.actions").select_vertical,
+					},
+				}
+			}
 		})
 
 		pcall(telescope.load_extension, "fzf")

@@ -50,5 +50,5 @@ source "~/.zoxide.nu"
 # Startup commands
 # ---------------------
 if (is-terminal) {
-    exa
+    eza
 }

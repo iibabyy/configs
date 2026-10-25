@@ -1,6 +1,10 @@
 return {
 	"mrjones2014/smart-splits.nvim",
 	config = function()
+		require('smart-splits').setup({
+			zellij_move_focus_or_tab = true,
+		})
+
 		local smart_splits = require('smart-splits')
 
 		vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left, { desc = "Move to left split/pane" })

@@ -1,20 +1,13 @@
 layout {
     cwd "Desktop/"
 
+    tab name="main" focus=true
+
     tab name="btop" {
         pane borderless=true close_on_exit=true {
             command "nu"
             args "-c" "btop"
         }
-    }
-
-    tab name="main" focus=true {
-        exa_pane
-    }
-
-    pane_template name="exa_pane" close_on_exit=true {
-        command "nu"
-        args "-e" "exa"
     }
 
     default_tab_template {

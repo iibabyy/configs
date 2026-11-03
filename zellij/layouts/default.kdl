@@ -4,10 +4,7 @@ layout {
     tab name="main" focus=true
 
     tab name="btop" {
-        pane borderless=true close_on_exit=true {
-            command "nu"
-            args "-c" "btop"
-        }
+        pane borderless=true close_on_exit=true command="btop"
     }
 
     default_tab_template {

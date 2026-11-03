@@ -7,9 +7,30 @@ $env.SHELL = "/home/ibaby/.local/bin/nu"
 
 source "~/.cargo/env.nu"
 $env.CARGO_HOME = $env.CARGO_HOME? | default $"($env.HOME)/.cargo"
+$env.CARGO_TARGET_DIR = $"($env.HOME)/.cargo-target/"
 
 if ("~/sgoinfre" | path exists) {
     $env.XDG_CACHE_HOME = $"($env.HOME)/sgoinfre/.cache"
+}
+
+# ---------------------
+# PATH env var
+# ---------------------
+let paths: list<string> = [
+    $"($env.HOME)/.local/bin"
+    $"($env.HOME )/.fzf/bin"
+    $"($env.HOME )/.nvim/bin"
+    $"($env.HOME )/go/bin"
+    $"($env.HOME )/.opencode/bin"
+    $"($env.CARGO_HOME)/bin"
+    "/usr/local/bin"
+    "/usr/local/sbin"
+]
+
+for path in $paths {
+    if ($path | path exists) {
+        path add $path
+    }
 }
 
 # ---------------------
@@ -34,28 +55,16 @@ def setup-symlink-dir [
     }
 }
 
-$env.CARGO_TARGET_DIR = $"($env.HOME)/.cargo-target/"
-setup-symlink-dir $env.CARGO_TARGET_DIR ~/goinfre/.cargo-target/
-
-setup-symlink-dir ~/.cargo/registry/src ~/sgoinfre/.cargo-src/
-
-# ---------------------
-# PATH env var
-# ---------------------
-let paths: list<string> = [
-    $"($env.HOME)/.local/bin"
-    $"($env.HOME )/.fzf/bin"
-    $"($env.HOME )/.nvim/bin"
-    $"($env.HOME )/go/bin"
-    $"($env.HOME )/.opencode/bin"
-    $"($env.CARGO_HOME)/bin"
-    "/usr/local/bin"
-    "/usr/local/sbin"
+# list of (.0) symlink paths and (.1) directory to link to
+let symlinks: list<list<string>> = [
+    [$env.CARGO_TARGET_DIR, ~/goinfre/.cargo-target]
+    [~/.cargo/registry/cache, ~/goinfre/.cargo-cache/registry]
+    [~/.cargo/registry/src, ~/sgoinfre/.cargo-src]
 ]
 
-for path in $paths {
-    if ($path | path exists) {
-        path add $path
+for paths in $symlinks {
+    try {
+        setup-symlink-dir $paths.0 $paths.1
     }
 }
 

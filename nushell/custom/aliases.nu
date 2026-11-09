@@ -3,7 +3,7 @@ export alias c = clear
 
 export alias v = nvim .
 export alias vi = nvim
-export alias vc = nvim ~/.config/
+export alias vc = nvim ($env.XDG_CONFIG_HOME | default ~/.config)
 export alias vu = nvim $nu.default-config-dir # ~/.config/nushell
 export alias vn = nvim ~/.config/nvim/
 
@@ -20,8 +20,8 @@ export alias gd = lazydocker
 
 export alias agy = agy --dangerously-skip-permissions
 
-export alias exa = ^exa --icons
-export alias x = exa
+export alias eza = ^eza --icons
+export alias x = eza
 
 # Git Aliases
 export alias g = git

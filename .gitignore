@@ -6,4 +6,5 @@
 !nvim/
 !alacritty/
 !zellij/
+!com.mitchellh.ghostty/
 /nushell/vendor/autoload/starship.nu

@@ -52,3 +52,8 @@ source "~/.zoxide.nu"
 if (is-terminal) {
     eza
 }
+
+# Auto-attach to zellij in Ghostty
+if ($env.ZELLIJ? == null) and ($env.TERM_PROGRAM? == "ghostty") {
+    zellij attach --create main
+}

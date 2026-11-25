@@ -95,3 +95,6 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 
 vim.opt.termguicolors = true
+
+-- Terminal can display images (Kitty graphics protocol): Ghostty, directly or through zellij >= 0.45
+vim.g.terminal_graphics = vim.env.TERM_PROGRAM == "ghostty"

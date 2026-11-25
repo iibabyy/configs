@@ -129,3 +129,6 @@ if ($missing or $empty) and (which starship | is-not-empty) {
 } else if $missing {
     "" | save $starship_path
 }
+
+# Ghostty CLI
+path add "/Applications/Ghostty.app/Contents/MacOS"

@@ -6,7 +6,7 @@ return {
 	config = function()
 		-- Ensure basic parsers are installed
 		local parsers =
-		{ "rust", "toml", "asm", "c", "diff", "lua", "luadoc", "vim", "vimdoc", "nu", "query" }
+		{ "rust", "toml", "asm", "c", "diff", "lua", "luadoc", "vim", "vimdoc", "nu", "query", "markdown", "markdown_inline", "html" }
 		require("nvim-treesitter").install(parsers)
 
 		---@param buf integer

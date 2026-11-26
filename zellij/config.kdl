@@ -347,7 +347,7 @@ default_mode "locked"
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 // 
-default_shell "nu"
+default_shell "/Users/idrissa/.cargo/bin/nu"
  
 // Choose the path to override cwd that zellij will use for opening new panes
 // 
@@ -640,7 +640,11 @@ show_startup_tips false
 // of this command will be used instead of the discovered RESURRECT_COMMAND
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
-post_command_discovery_hook "echo nu -c \\\"$RESURRECT_COMMAND; nu\\\""
+// post_command_discovery_hook "echo nu -c \\\"$RESURRECT_COMMAND; nu\\\""
+
+// Whether to resurrect pane commands within an interactive shell instance (e.g. using `nu -e` when default_shell is nu)
+// (Requires restart)
+resurrect_with_shell true
 
 // Number of async worker tasks to spawn per active client.
 //

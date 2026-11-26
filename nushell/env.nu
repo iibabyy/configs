@@ -130,5 +130,11 @@ if ($missing or $empty) and (which starship | is-not-empty) {
     "" | save $starship_path
 }
 
+# ---------------------
+# esp32
+# ---------------------
+$env.LIBCLANG_PATH = "/Users/idrissa/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-21.1.3_20260408/esp-clang/lib"
+path add "/Users/idrissa/.rustup/toolchains/esp/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/bin"
+
 # Ghostty CLI
 path add "/Applications/Ghostty.app/Contents/MacOS"
